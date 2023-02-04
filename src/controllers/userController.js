@@ -9,7 +9,7 @@ class UserController {
             const users = await this.userService.findAll();
             res.status(200).json(users);
         } catch (err) {
-            res.status(400).json({error: err.message})
+            res.status(400).json({error: err.message});
         }
     }
 
@@ -19,7 +19,7 @@ class UserController {
             const user = await this.userService.findById(id);
             res.status(200).json(user);
         } catch (err) {
-            res.status(400).json({error: err.message})
+            res.status(400).json({error: err.message});
         }
     }
 
@@ -50,7 +50,7 @@ class UserController {
             const user = await this.userService.delete(id);
             res.status(200).json(user);
         } catch (err) {
-            res.status(400).json({error: err.message})
+            res.status(400).json({error: err.message});
         }
     }
 }

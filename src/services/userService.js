@@ -11,7 +11,7 @@ class UserService {
 
     findById = async (id) => {
         if (isNaN(id)) {
-            throw new Error("ID must a number!")
+            throw new Error("ID must a number!");
         }
 
         return await this.userRepository.findById(id);
@@ -19,11 +19,11 @@ class UserService {
 
     save = async (user) => {
         if (!user.email) {
-            throw new Error("User email cannot be empty!")
+            throw new Error("User email cannot be empty!");
         }
 
         if (!user.name) {
-            throw new Error("User name cannot be empty!")
+            throw new Error("User name cannot be empty!");
         }
 
         if (await this.userRepository.existsByEmail(user.email)) {
@@ -43,7 +43,7 @@ class UserService {
 
     delete = async (id) => {
         if (isNaN(id)) {
-            throw new Error("ID must a number!")
+            throw new Error("ID must a number!");
         }
 
         return await this.userRepository.delete(id);

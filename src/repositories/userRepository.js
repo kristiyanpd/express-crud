@@ -13,13 +13,13 @@ class UserRepository {
     findById = async (id) => {
         const {rows} = await this.db.query(`SELECT *
                                             FROM users
-                                            WHERE id = $1`, [id])
+                                            WHERE id = $1`, [id]);
         return rows[0];
     }
 
     save = async (user) => {
         const {rows} = await this.db.query(`INSERT INTO users(name, email)
-                                            VALUES ($1, $2) RETURNING *`, [user.name, user.email])
+                                            VALUES ($1, $2) RETURNING *`, [user.name, user.email]);
         return rows[0];
     }
 
@@ -27,7 +27,7 @@ class UserRepository {
         const {rows} = await this.db.query(`UPDATE users
                                             SET name  = COALESCE(NULLIF($1, ''), name),
                                                 email = COALESCE(NULLIF($2, ''), email)
-                                            WHERE id = $3 RETURNING *`, [user.name, user.email, id])
+                                            WHERE id = $3 RETURNING *`, [user.name, user.email, id]);
         return rows[0];
     }
 
@@ -41,7 +41,7 @@ class UserRepository {
     existsByEmail = async (email) => {
         const {rows} = await this.db.query(`SELECT *
                                             FROM users
-                                            WHERE email LIKE $1`, [email])
+                                            WHERE email LIKE $1`, [email]);
         return !!rows.length;
     }
 
@@ -49,7 +49,7 @@ class UserRepository {
         const {rows} = await this.db.query(`SELECT *
                                             FROM users
                                             WHERE id != $1
-                                              AND email LIKE $2`, [id, email])
+                                              AND email LIKE $2`, [id, email]);
         return !!rows.length;
     }
 }
