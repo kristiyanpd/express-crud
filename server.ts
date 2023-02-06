@@ -1,8 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+import express, { Express } from 'express';
+import bodyParser from 'body-parser';
+import userRouter from './src/configs/manualDi';
 
-const app = express();
-const { userRouter } = require('./src/configs/manualDi');
+const app: Express = express();
 
 // JSON Parsing
 app.use(bodyParser.json());

@@ -1,9 +1,12 @@
-const express = require('express');
+import express, { Router } from 'express';
+import UserController from '../controllers/userController';
 
 const router = express.Router();
 
 class UserRouter {
-  constructor(userController) {
+  router: Router;
+
+  constructor(userController: UserController) {
     router.get('/', userController.findAll);
     router.post('/', userController.save);
     router.get('/:id', userController.findById);
@@ -13,4 +16,4 @@ class UserRouter {
   }
 }
 
-module.exports = UserRouter;
+export default UserRouter;

@@ -1,15 +1,14 @@
 module.exports = {
   env: {
-    commonjs: true,
     es2021: true,
     node: true,
   },
-  extends: 'airbnb-base',
-  overrides: [
-  ],
+  extends: ['airbnb-base', 'airbnb-typescript/base'],
+  overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: './tsconfig.json',
   },
-  rules: {
-  },
+  rules: {},
 };
